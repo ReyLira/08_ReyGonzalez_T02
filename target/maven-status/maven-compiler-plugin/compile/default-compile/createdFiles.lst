@@ -1,0 +1,6 @@
+Controller\ProductoC.class
+services\ReportePorductos.class
+dao\ProductoImpl.class
+dao\Conexion.class
+dao\ICRUD.class
+model\Producto.class

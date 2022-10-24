@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Prueba2" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ed545262-f7b3-4f4e-8195-a34a23aa496d">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+	<parameter name="ID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[25]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT "CODPRO",
+	"NOMPRO",
+	"PREPRO",
+	"CANPRO",
+	"DESPRO",
+	"ESTPRO",
+	"TIPPRO"
+FROM "PRODUCTO"
+WHERE 
+	 "PRODUCTO"."CODPRO" = $P{ID}]]>
+	</queryString>
+	<field name="CODPRO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="CODPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CODPRO"/>
+	</field>
+	<field name="NOMPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOMPRO"/>
+	</field>
+	<field name="PREPRO" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PREPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="PREPRO"/>
+	</field>
+	<field name="CANPRO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="CANPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CANPRO"/>
+	</field>
+	<field name="DESPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DESPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="DESPRO"/>
+	</field>
+	<field name="ESTPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ESTPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="ESTPRO"/>
+	</field>
+	<field name="TIPPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TIPPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="TIPPRO"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="65" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="-20" width="595" height="80" backcolor="#FF3936" uuid="e8776180-c811-4c93-978e-51989eac5bee"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="-20" y="0" width="190" height="40" uuid="d5cec10a-55cb-43de-95fb-fd961b327a6c"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Lista de Productos]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="460" y="5" width="100" height="30" uuid="ef81bd8e-19c8-45c3-9291-7bceac8760d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="450" y="0" width="125" height="40" uuid="1bf910bd-7315-4350-bff2-477855a93ee1"/>
+				<box>
+					<pen lineWidth="1.0" lineStyle="Dashed"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="460" y="5" width="100" height="30" uuid="831f1429-2da0-4712-886b-678abfd815e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-19" y="-4" width="593" height="37" forecolor="rgba(255, 255, 255, 0.0)" backcolor="#E8E8E8" uuid="62d86769-42cd-46de-953a-40f525c1688d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="0" width="100" height="30" uuid="3840db78-56ca-41c2-8817-6f2781a7c62a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="93ebc5ce-e58f-4054-8bf2-48eb37a32b19"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="0" width="100" height="30" uuid="77df9695-b589-444f-a1f4-b4a27e9ca1b2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8441a93c-e1c3-48c9-b039-b7217583602c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="0" width="100" height="30" uuid="a4c94e74-ebe0-4b0e-8979-000e74400362">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="53a88d0b-caa7-40a8-b121-9ea932c88e32"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="0" width="100" height="30" uuid="92343a7e-9c26-4002-93ed-0666deae1065">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6cf78989-9d55-4735-95f6-61cbeac4a7b7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="3" width="100" height="30" uuid="9e72bfe6-0af7-406c-8c8b-359180de9f4c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ff53e59-84fd-4a56-9ae9-9ca8fe5c2a61"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tamaño]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="38" width="594" height="1" uuid="1fa4f0ea-1847-4f3d-8670-c01eac0920d1"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-20" y="33" width="595" height="1" uuid="500eab0b-16fb-493e-887c-9f50556c1215"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="493" splitType="Stretch">
+			<textField>
+				<reportElement x="-10" y="0" width="100" height="30" uuid="2dc7ccff-1e44-4d77-8f54-0b56c43c6bce">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="93ebc5ce-e58f-4054-8bf2-48eb37a32b19"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="30" uuid="4b796c5b-d98d-4a45-809f-0d997755e1a7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8441a93c-e1c3-48c9-b039-b7217583602c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DESPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="0" width="100" height="30" uuid="4ea30334-eb19-4141-bde4-11d2de984f66">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="53a88d0b-caa7-40a8-b121-9ea932c88e32"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CANPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="0" width="100" height="30" uuid="cb0f7176-e8d0-49ca-8fe4-7a81f775e6c7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6cf78989-9d55-4735-95f6-61cbeac4a7b7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PREPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="100" height="30" uuid="4a440262-eb04-4a1f-8f2e-55ee3503d204">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ff53e59-84fd-4a56-9ae9-9ca8fe5c2a61"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TIPPRO}]]></textFieldExpression>
+			</textField>
+			<barChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="60" width="260" height="170" uuid="9234a79e-f0de-4689-8aa6-33ea08bec179"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA["Cantidad de Productos"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{NOMPRO}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{CANPRO}]]></valueExpression>
+						<labelExpression><![CDATA[$F{NOMPRO}]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Cantidad de Tipos"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{TIPPRO}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{CANPRO}]]></valueExpression>
+						<labelExpression><![CDATA[$F{TIPPRO}]]></labelExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Precios"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{NOMPRO}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{PREPRO}]]></valueExpression>
+						<labelExpression><![CDATA[$F{NOMPRO}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot labelRotation="48.0"/>
+					<itemLabel/>
+					<categoryAxisFormat labelRotation="48.0">
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<pie3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="290" y="60" width="255" height="170" uuid="d1d91530-8ff6-4db9-87a8-dd719601f69c"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="5">
+					<dataset resetType="Report"/>
+					<pieSeries>
+						<keyExpression><![CDATA["Productos"]]></keyExpression>
+						<valueExpression><![CDATA[$F{PREPRO}]]></valueExpression>
+						<labelExpression><![CDATA[$F{NOMPRO}]]></labelExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA["Cantidades"]]></keyExpression>
+						<valueExpression><![CDATA[$F{CANPRO}]]></valueExpression>
+						<labelExpression><![CDATA[$F{NOMPRO}]]></labelExpression>
+					</pieSeries>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<stackedBar3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="100" y="270" width="320" height="223" uuid="c3598597-b25f-466a-9b75-b430d97a8475"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Report"/>
+					<categorySeries>
+						<seriesExpression><![CDATA["Cantidades"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{NOMPRO}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{CANPRO}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Cantidad de Tipos "]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{TIPPRO}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{CANPRO}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Precios"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{TIPPRO}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{PREPRO}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot labelRotation="62.0"/>
+					<itemLabel/>
+					<categoryAxisFormat labelRotation="62.0">
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat labelColor="#000000" tickLabelColor="#000000" axisLineColor="#000000"/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</stackedBar3DChart>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="64" splitType="Stretch">
+			<line>
+				<reportElement x="-20" y="10" width="594" height="1" uuid="25c0644f-e701-44a9-970b-5a713e9704f7"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="25" width="140" height="30" uuid="8a300266-ddb1-4bab-a71e-313a11635b0f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Elaborado por: Rey Gonzalez]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="25" width="58" height="30" uuid="f847ee1d-5868-4aee-996c-ad588d29685f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Página]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement mode="Transparent" x="440" y="20" width="87" height="41" uuid="ac527b36-d5aa-48cd-a070-06a10d0a4067"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="500" y="25" width="60" height="30" uuid="e350cd5f-a978-4f5e-a705-300203470ee6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

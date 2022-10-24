@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en" xml:lang="en"    
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Mantenimiento de Productos</title>
+    </h:head>
+
+    <h:body>
+        <f:event listener="#{productoC.listar()}" type="preRenderView" />
+        <center>
+            <p:growl showDetail="true" id="messages" >
+                <p:autoUpdate/> 
+            </p:growl>
+
+            <!--        Formulario del Familia >-->
+            <h:form id="frmRegPer">    
+
+                <p:panelGrid columns="2" >
+                    <f:facet name= "header"> Registros de Productos </f:facet> 
+
+                    <p:outputLabel value="Nombre de Producto"  />                    
+                    <p:inputText  value="#{productoC.producto.nombre}" required="true" requiredMessage="¡Rellene el Campo Nombre de Producto!" >
+                        <p:keyFilter regEx="/[a-zA-Z-ñ/´, ]/" />
+                    </p:inputText>
+
+                    <p:outputLabel value="Descripcion" />
+                    <p:inputTextarea rows="4" cols="30" value="#{productoC.producto.descripcion}" maxlength="80" required="true" requiredMessage="¡Rellene el Campo Descripcion"/>
+
+                    <p:outputLabel for="txt3" value="Tamaño"/>
+                    <p:selectOneMenu id="txt3" value="#{productoC.producto.tipo}" required="true" label="Text 3">
+                        <f:selectItem itemLabel="Tipos" itemValue="" noSelectionOption="true"/>
+                        <f:selectItem itemLabel="Familiar" itemValue="Familiar"/>
+                        <f:selectItem itemLabel="Grande" itemValue="Grande"/>
+                        <f:selectItem itemLabel="Mediana" itemValue="Mediana"/>
+                        <f:selectItem itemLabel="Pequeña" itemValue="Pequeña"/>
+                        <f:selectItem itemLabel="Personal" itemValue="Personal"/>
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Precio" />
+                    <p:inputText value="#{productoC.producto.precio}" maxlength="10" required="true" requiredMessage="¡Rellene el Campo Precio">
+                        <p:keyFilter regEx="/[0-9/.]/" />
+                        <f:validateLength  minimum="3"  maximum="5" />
+                    </p:inputText>
+
+                    <p:outputLabel value="Cantidad" />
+                    <p:inputText value="#{productoC.producto.cantidad}" maxlength="10" required="true" requiredMessage="¡Rellene el Campo Cantidad">
+                        <p:keyFilter regEx="/[0-9/]/" />
+                        <f:validateLength  minimum="1"  maximum="7" />
+                    </p:inputText>
+
+                    <p:commandButton actionListener="#{productoC.limpiar()}" value="Limpiar" />
+                    <p:commandButton actionListener="#{productoC.registrar()}" value="Registrar" update="frmRegPer :frmTablaPro:tablaPro"/>
+                </p:panelGrid>   
+            </h:form>
+            <!--        Fin del Formulario de Familia >-->
+
+            <p:spacer height="0"/>        
+
+            <!--        Listado del Familia   >-->              
+            <h:form id="frmTablaPro">
+
+                <p:dataTable id="tablaPro" var="lista" value="#{productoC.lstProducto}"  selection="#{productoC.producto}" rowKey="#{lista.id}"
+                             selectionMode="single" resizableColumns="true"
+                             rows="10"
+                             paginator="true"
+                             paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                             rowsPerPageTemplate="5,10,15">   
+                    <f:facet name="header">
+                        Listado de Producto por :
+
+                        <p:selectOneMenu id="idfiltrar" value="#{productoC.estado}">
+                            <f:selectItem itemLabel="Disponible" itemValue="1"/>
+                            <f:selectItem itemLabel="No Disponible" itemValue="2"/>
+                            <f:selectItem itemLabel="Todos" itemValue="3"/> 
+                            <p:ajax listener="${productoC.listar()}" update="frmTablaPro:tablaPro"/>
+                        </p:selectOneMenu>
+
+                        <div style="float:right">
+                            <p:commandButton value="REPORTE" actionListener="#{productoC.verReportePDFEST()}" ajax="false" icon="pi pi-file-pdf"
+                                             onclick="this.form.target = 'blank'" styleClass="rounded-button blue" style="font-weight:bold">
+                            </p:commandButton>
+                        </div>
+
+                    </f:facet>
+
+                    <p:column headerText="Nombre" filterBy="#{lista.nombre}" filterStyle="width:100px;" filterMatchMode="contains"  style="width: 100px ; text-align: center">
+                        <h:outputText value="#{lista.nombre}" />
+                    </p:column>
+
+                    <p:column headerText="Descripcion" style="width: 100px ; text-align: center">
+                        <h:outputText value="#{lista.descripcion}" />
+                    </p:column>
+
+                    <p:column headerText="Tamaño" filterBy="#{lista.tipo}" filterStyle="width:100px;" filterMatchMode="contains" style="width: 100px ; text-align: center">
+                        <h:outputText value="#{lista.tipo}" />
+                    </p:column>
+
+                    <p:column headerText="Cantidad" style="width: 100px ; text-align: center">
+                        <h:outputText value="#{lista.cantidad}" />
+                    </p:column>
+
+                    <p:column headerText="Precio"  style="width: 100px ; text-align: center">
+                        <h:outputText value="#{lista.precio}" />
+                    </p:column>
+
+
+                </p:dataTable> 
+
+                <p:contextMenu for="tablaPro">
+                    <p:menuitem value="Eliminar" action="#{productoC.eliminar()}" update="tablaPro" icon="pi pi-trash">
+                        <p:confirm header="Confirmación" message="¿Deseas eliminar?"/>
+                    </p:menuitem>
+                    <p:menuitem value="Restaurar" action="#{productoC.cambiarestado()}" update="tablaPro" icon="pi pi-user-minus">
+                        <p:confirm header="Confirmación" message="¿Deseas Restaurar?"/>
+                    </p:menuitem>
+                    <p:menuitem value="Modificar" icon="pi pi-pencil" oncomplete="PF('wdlgDatos').show();" update=":frmModificar"/>
+                </p:contextMenu>
+
+
+            </h:form>
+            <!--        Fin del Listado Familia  >-->  
+
+            <!--        Dialogo del Familia   >-->
+            <p:dialog header="Datos de la Familia " widgetVar="wdlgDatos" id="dlgDatos">
+                <h:form id="frmModificar">
+                    <p:panelGrid columns="2" > 
+
+                        <p:outputLabel value="Nombre de Producto"  />                    
+                        <p:inputText  value="#{productoC.producto.nombre}" required="true" requiredMessage="¡Rellene el Campo Nombre de Producto!" >
+                            <p:keyFilter regEx="/[a-zA-Z-ñ/´, ]/" />
+                        </p:inputText>
+
+                        <p:outputLabel value="Descripcion" />
+                        <p:inputTextarea rows="4" cols="30" value="#{productoC.producto.descripcion}" maxlength="80" required="true" requiredMessage="¡Rellene el Campo Descripcion"/>
+
+                        <p:outputLabel for="txt3" value="Tamaño"/>
+                        <p:selectOneMenu id="txt3" value="#{productoC.producto.tipo}" required="true" label="Text 3">
+                            <f:selectItem itemLabel="Tipos" itemValue="" noSelectionOption="true"/>
+                            <f:selectItem itemLabel="Familiar" itemValue="Familiar"/>
+                            <f:selectItem itemLabel="Grande" itemValue="Grande"/>
+                            <f:selectItem itemLabel="Mediana" itemValue="Mediana"/>
+                            <f:selectItem itemLabel="Pequeña" itemValue="Pequeña"/>
+                            <f:selectItem itemLabel="Personal" itemValue="Personal"/>
+                        </p:selectOneMenu>
+
+                        <p:outputLabel value="Precio" />
+                        <p:inputText value="#{productoC.producto.precio}" maxlength="10" required="true" requiredMessage="¡Rellene el Campo Precio">
+                            <p:keyFilter regEx="/[0-9/.]/" />
+                            <f:validateLength  minimum="3"  maximum="5" />
+                        </p:inputText>
+
+                        <p:outputLabel value="Cantidad" />
+                        <p:inputText value="#{productoC.producto.cantidad}" maxlength="10" required="true" requiredMessage="¡Rellene el Campo Cantidad">
+                            <p:keyFilter regEx="/[0-9/]/" />
+                            <f:validateLength  minimum="1"  maximum="7" />
+                        </p:inputText>
+                        <p:commandButton id="btnModificar" value="Modificar" actionListener="#{productoC.modificar()}"
+                                         update="frmModificar :frmTablaPro:tablaPro" 
+                                         oncomplete="if(!args.validationFailed)PF('wdlgDatos').hide();">
+                            <p:confirm header="Confirmación" message="¿Deseas Modificar?" icon="ui-icon-alert"/>
+                        </p:commandButton>  
+                        <p:commandButton value="Cancelar" immediate="true" oncomplete="PF('wdlgDatos').hide();" />
+                        <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                            <p:commandButton value="Si" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check"/>
+                            <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close"/>
+                        </p:confirmDialog>
+                    </p:panelGrid> 
+                </h:form>
+
+            </p:dialog>
+            <!--        Fin del Dialogo del Familia>-->
+
+        </center>
+    </h:body>
+    <h:outputScript library="js" name="..//resources/js/spanishLocales.js"/>
+</html>
+

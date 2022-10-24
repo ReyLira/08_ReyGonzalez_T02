@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Pizzas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e5aa4ba6-8809-4b2a-b1ce-4d20be530cc1">
+	<property name="com.jaspersoft.studio.data.sql.tables">
+		<![CDATA[IlBST0RVQ1RPIiBBUyAsMTk5LDEwNSxiZmE0Y2UwOS1mZTFlLTRjODMtYjA2My02MDVmNDZhMTZm
+NGI7]]>
+	</property>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT "CODPRO",
+	"NOMPRO",
+	"PREPRO",
+	"CANPRO",
+	"DESPRO",
+	"TIPPRO",
+	"ESTPRO"
+FROM "PRODUCTO"]]>
+	</queryString>
+	<field name="CODPRO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="CODPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CODPRO"/>
+	</field>
+	<field name="NOMPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOMPRO"/>
+	</field>
+	<field name="PREPRO" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PREPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="PREPRO"/>
+	</field>
+	<field name="CANPRO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="CANPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CANPRO"/>
+	</field>
+	<field name="DESPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DESPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="DESPRO"/>
+	</field>
+	<field name="TIPPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TIPPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="TIPPRO"/>
+	</field>
+	<field name="ESTPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ESTPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="ESTPRO"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="0" width="595" height="31" forecolor="#030000" backcolor="#FF4040" uuid="ab1ec0e0-0c8b-4753-83e5-f0ec00684623"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="-10" y="0" width="120" height="20" forecolor="#FFFFFF" uuid="e07a23e5-98be-4db9-839e-5de110ddd55f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PizzaHut]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="16" width="100" height="20" forecolor="#FFFFFF" uuid="985d6f96-dd53-47ee-a3e0-c9c917c8dfeb"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pizzeria Local]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="470" y="0" width="100" height="30" forecolor="#FFFFFF" uuid="d7e82a71-56de-4007-9436-5f865edad7ab"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="112" y="36" width="331" height="41" uuid="a4872341-2be5-49e0-b05f-abe2864fd830"/>
+				<textElement textAlignment="Center">
+					<font size="26" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Reporte de Productos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-10" y="1" width="570" height="31" forecolor="#FFFFFF" backcolor="#F78C2F" uuid="021aa3b9-7241-42b3-b307-8e76fad07510"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="30" forecolor="#FFFFFF" uuid="fe4ef601-ceee-4b56-bac6-ffacb17434ae"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="2" width="100" height="30" forecolor="#FFFFFF" uuid="bcb46c15-23e9-4612-b9ad-5c9bcaa744ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="2" width="100" height="30" forecolor="#FFFFFF" uuid="6d2b1f0d-33dd-433f-8514-820f10ee93f3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="2" width="100" height="30" forecolor="#FFFFFF" uuid="8d940403-dc1a-446b-a7a9-f0dc57b2d2bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tamaño]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="89" height="30" forecolor="#FFFFFF" uuid="f1223e74-fbab-4698-ae08-abf7c883accf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="c2af23b3-3c05-4bd0-8d16-16f953504acf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{NOMPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="0" width="100" height="30" uuid="eaac26f8-a604-4e32-844e-4fb6bb984041"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PREPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="100" height="30" uuid="8402fc33-cf64-4815-bc23-605485a4eb91"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TIPPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="220" y="0" width="100" height="30" uuid="b7f36e6f-716c-4cbc-929f-dd4b636bc3bd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CANPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="110" y="0" width="100" height="30" uuid="725a2ba0-0331-43c7-b263-87b3c44afd13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DESPRO}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-6" y="30" width="562" height="1" uuid="7eaf6241-e0f0-4e49-a286-54eed0ed3a09"/>
+			</line>
+			<line>
+				<reportElement x="-7" y="0" width="1" height="30" uuid="bb6e0ab0-c7b7-414b-b68a-0ee75d1f0017"/>
+			</line>
+			<line>
+				<reportElement x="100" y="0" width="1" height="30" uuid="e8e1d539-e537-4e5a-ba87-e942ac56269a"/>
+			</line>
+			<line>
+				<reportElement x="216" y="-1" width="1" height="30" uuid="39723cee-7ad1-484b-adf7-601820a066c3"/>
+			</line>
+			<line>
+				<reportElement x="330" y="-1" width="1" height="30" uuid="6caf5e9f-089c-4318-b305-c507a84b2a3a"/>
+			</line>
+			<line>
+				<reportElement x="443" y="-1" width="1" height="30" uuid="675d0b7d-6642-4379-9060-4d91e79039b2"/>
+			</line>
+			<line>
+				<reportElement x="556" y="-1" width="1" height="30" uuid="182c5e1e-14fa-4db9-b319-70377c650029"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="12" width="201" height="31" uuid="cf260cfc-9571-43ee-8993-9f2b7ec2ea2f"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Elaborado por: Rey Gonzalez]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="455" y="12" width="51" height="31" uuid="72024bd9-f464-48c9-a72d-c6ebcf0dbf70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="17" width="41" height="21" uuid="8c4a5b41-3a77-4cf9-a7bb-5fd155fca7bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="467" y="28" width="6" height="1" uuid="a0e06f4a-5195-4b18-8ac0-f3734e2438a6"/>
+			</line>
+			<staticText>
+				<reportElement x="493" y="17" width="72" height="21" uuid="cb8f9162-1326-43f4-91e7-264c92cbcd1f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[(Páginas)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-19" y="10" width="592" height="1" uuid="5bbb93d1-dcbf-45b0-8f89-80d912a2b9d4"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.0.final using JasperReports Library version 6.20.0-2bc7ab61c56f459e8176eb05c7705e145cd400ad  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Prueba6" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba591166-66a5-4eb2-92ce-59d67afb4e60">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+	<parameter name="ID8" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[25]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT "PREPRO",
+	"CANPRO",
+	"TIPPRO",
+	"DESPRO"
+FROM "PRODUCTO"
+WHERE 
+	 "PRODUCTO"."CODPRO" =   $P{ID8} ]]>
+	</queryString>
+	<field name="PREPRO" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="PREPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="PREPRO"/>
+	</field>
+	<field name="CANPRO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="CANPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CANPRO"/>
+	</field>
+	<field name="TIPPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TIPPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="TIPPRO"/>
+	</field>
+	<field name="DESPRO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DESPRO"/>
+		<property name="com.jaspersoft.studio.field.label" value="DESPRO"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-19" y="-4" width="593" height="37" forecolor="rgba(255, 255, 255, 0.0)" backcolor="#E8E8E8" uuid="d471f46a-e975-49b0-8fe1-2c4d61daa015"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="-1" width="100" height="30" uuid="3904fd32-2528-4e76-8957-1a4f105e0989">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8441a93c-e1c3-48c9-b039-b7217583602c"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="0" width="100" height="30" uuid="6b63ba11-bc2c-4b2e-b0ab-bd1a79a675d7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="53a88d0b-caa7-40a8-b121-9ea932c88e32"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="310" y="0" width="100" height="30" uuid="be8a72a3-ac4c-4d20-93c4-39694ea140f9">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="6cf78989-9d55-4735-95f6-61cbeac4a7b7"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="-1" width="100" height="30" uuid="cea17438-abd6-459f-8369-c30f9e1dce4b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2ff53e59-84fd-4a56-9ae9-9ca8fe5c2a61"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tamaño]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="33" width="595" height="1" uuid="fd712add-9d99-4bd6-9671-eebb61c60bf4"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-20" y="38" width="594" height="1" uuid="07fe63c0-5091-43ff-93f5-f2afe5d16a30"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="310" y="0" width="100" height="30" uuid="9d82f9fe-a6e7-4daf-8419-33251ff683a4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c21e60af-fc10-42a8-a82f-3b94bce35afb"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PREPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="100" height="30" uuid="109d0342-5d6a-4bb5-a306-a1461acd75e7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1e854b6b-c302-4567-9fb9-ebd19f422535"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{CANPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="30" uuid="be95652c-6cef-47e4-b141-65bd3df5ad90">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="81e1d4e5-4a34-49db-812a-559ce217dd59"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{DESPRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="100" height="30" uuid="2e8916bc-6c01-4e43-b712-f79d15fa4ec1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="655414d6-304f-4b43-abe0-71e9ebebc712"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TIPPRO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
